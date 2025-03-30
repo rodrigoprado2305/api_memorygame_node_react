@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './Login.css'; // Importe o arquivo CSS
 
 const Login = ({ onLogin }) => {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // For navigation
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/api/users/login', formData);
       localStorage.setItem('token', response.data.token);
-      localStorage.setItem('userID', response.data.userID); // Save the userID
+      localStorage.setItem('userID', response.data.userID);
       onLogin();
       navigate('/play');
     } catch (error) {
@@ -23,35 +24,38 @@ const Login = ({ onLogin }) => {
       }
     }
   };
-  
 
   const handleRegisterRedirect = () => {
-    navigate('/register'); // Redirect to the Register page
+    navigate('/register');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={formData.username}
-        onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={formData.password}
-        onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-      />
-      <div style={{ display: 'flex', gap: '10px' }}>
-        <button type="submit">Login</button>
-        <button type="button" onClick={handleRegisterRedirect}>
-          Register
-        </button>
-      </div>
-      <p style={{ color: 'red' }}>{error}</p>
-    </form>
+    <div className="login-container">
+      <h2 className="login-title">Login</h2>
+      <form onSubmit={handleSubmit} className="login-form">
+        <input
+          className="login-input"
+          type="text"
+          placeholder="Username"
+          value={formData.username}
+          onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+        />
+        <input
+          className="login-input"
+          type="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+        />
+        <div className="button-group">
+          <button type="submit" className="login-button">Login</button>
+          <button type="button" onClick={handleRegisterRedirect} className="register-button">
+            Register
+          </button>
+        </div>
+        {error && <p className="error-message">{error}</p>}
+      </form>
+    </div>
   );
 };
 
