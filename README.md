@@ -1,4 +1,4 @@
-# API TODO LIST com GOLANG
+# API Memory Game with Node + React
 The memory game
 
 ## Database
@@ -26,22 +26,7 @@ mongodb+srv://rodrigoprado:123@cluster0.jqwsmpj.mongodb.net/?retryWrites=true&w=
    npm run dev
    ```
 
-#### **Frontend Developer:**
-- Style the login page to be visually appealing and responsive.
-- Create a modal dialog for level selection (Easy, Medium, Hard).
-
-#### **Backend Developer:**
-- Implement a simple API endpoint to save game results.
-- Create a route to fetch the game result history (no need for complex authentication).
-
-#### **Full Stack Developer:**
-- Complete both the Frontend and Backend tasks.
-- Integrate the API to display the game result history on a new page.
-
-
 ## Summary
-
-1-Nodejs/React+Vite/MongoDB Mode Atlas - Visual Studio Code
 
 Index|Version|Description
 -|-|-
