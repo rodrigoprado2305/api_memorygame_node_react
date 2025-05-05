@@ -3,8 +3,6 @@ ode --trace-warnings ...` to show where the warning was created)
 Server running on port 5000
 MongoDB connected...  
 
-mongodb+srv://ernesto:123@cluster0.p4e7i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-
 mongodb+srv://rodrigoprado:123@cluster0.jqwsmpj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 
 
